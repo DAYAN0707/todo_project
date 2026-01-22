@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Django Todoアプリ</title>
+</head>
+<body>
+    <h1>タスク一覧</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>タスク名</th>
+                <th>ステータス</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {# 1. tasksの内容をループで表示 #}
+            {% for task in tasks %}
+            <tr>
+                <td>{{ task.title }}</td>
+                <td>{{ task.status.name }}</td>
+                <td>
+                    {# 2. ステータス変更URLへのリンク #}
+                    <a href="{% url 'toggle_task' task.id %}">[ 状態を切り替える ]</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
