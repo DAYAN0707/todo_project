@@ -6,7 +6,7 @@
 </head>
 <body>
     <h1>Todo一覧</h1>
-    
+
     <a href="{% url 'task_create' %}" style="margin-bottom: 20px; display: inline-block;">
         <strong>[新規作成]</strong>
     </a>
@@ -26,6 +26,10 @@
                 <td>{{ task.status.name }}</td>
                 <td>
                     <a href="{% url 'toggle_task' task.id %}">[ 状態を切り替える ]</a>
+                    
+                    <a href="{% url 'task_update' task.id %}" style="margin-left: 10px; color: #28a745;">[ 編集 ]</a>
+                    
+                    <a href="{% url 'task_delete' task.id %}" style="margin-left: 10px; color: red;">[ 削除 ]</a>
                 </td>
             </tr>
             {% endfor %}

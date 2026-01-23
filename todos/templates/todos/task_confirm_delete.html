@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head><title>タスク削除確認</title></head>
+<body>
+    <h1>タスクの削除</h1>
+    <p>「{{ object.title }}」を削除してもよろしいですか？</p>
+
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit"> **[はい、削除します]** </button>
+    </form>
+    
+    <a href="{% url 'task_list' %}">キャンセルして戻る</a>
+</body>
+</html>
