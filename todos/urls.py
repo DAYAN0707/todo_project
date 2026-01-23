@@ -1,9 +1,8 @@
 from django.urls import path
-from . import views
+from .views import TaskListView, TaskCreateView, toggle_task 
 
 urlpatterns = [
-    # ブラウザで見る一覧画面
-    path('list/', views.task_list_view, name='task_list'),
-    # ステータスを切り替えるための処理用URL（画面は持たず、処理後にリダイレクト）
-    path('toggle/<int:task_id>/', views.toggle_task_status, name='toggle_task'),
+    path('list/', TaskListView.as_view(), name='task_list'),
+    path('create/', TaskCreateView.as_view(), name='task_create'),
+    path('toggle/<int:task_id>/', toggle_task, name='toggle_task'),
 ]
